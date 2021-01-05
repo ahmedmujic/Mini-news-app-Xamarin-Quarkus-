@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Blog
 {
-    class Blog
+    public class Blog
     {
         public string NewsImageUrl { get; set; }
         public string Title { get; set; }

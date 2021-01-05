@@ -7,11 +7,35 @@
         <Frame BackgroundColor="BlueViolet" HeightRequest="50"  >
             <Label Text="BLOG" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" TextColor="White" FontSize="25" FontAttributes="Bold"></Label>
         </Frame>
-        <Label Text="Todays briefing" Margin="10 10 10 10" FontAttributes="Bold" FontSize="17"></Label>
-        <ListView x:Name="lst"
-            Header="FC Barcelona"
-            Footer="2020–21 season" ItemsSource="{Binding Players}">
+        <Label Text="Todays briefing" FontAttributes="Bold" FontSize="17"></Label>
+        <ListView x:Name="lst" ItemsSource="{Binding Blogs}" Margin="10 10 10 10" >
+            <ListView.ItemTemplate  >
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid  Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto">
+                                    
+                                </RowDefinition>
+                                <RowDefinition Height="Auto">
 
+                                </RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Title}" Grid.Column="0" Grid.Row="0"  VerticalOptions="Center"></Label>
+                             <Label Text="{Binding Title}"  Grid.Column="0" Grid.Row="1" VerticalOptions="Center"></Label>
+
+
+                            <Image Source="{Binding NewsImageUrl}" Grid.Column ="2" Aspect="AspectFill"
+                                HeightRequest="40"
+                                WidthRequest="60"></Image>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
     </StackLayout>
 
