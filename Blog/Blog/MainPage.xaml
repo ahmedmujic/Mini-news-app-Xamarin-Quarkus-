@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Blog.MainPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="BlueViolet" HeightRequest="50"  >
+            <Label Text="BLOG" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" TextColor="White" FontSize="25" FontAttributes="Bold"></Label>
+        </Frame>
+        <Label Text="Todays briefing" Margin="10 10 10 10" FontAttributes="Bold" FontSize="17"></Label>
+        <ListView x:Name="lst"
+            Header="FC Barcelona"
+            Footer="2020–21 season" ItemsSource="{Binding Players}">
+
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
