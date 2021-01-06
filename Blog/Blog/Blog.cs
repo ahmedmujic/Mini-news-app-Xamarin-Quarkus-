@@ -6,9 +6,15 @@ namespace Blog
 {
     public class Blog
     {
-        public string NewsImageUrl { get; set; }
+
+        public int Id { get; set; }
+        public string Picture { get; set; }
         public string Title { get; set; }
-        public string description { get; set; }
-        //public DateTime date { get; set; }
+        public string Description { get; set; }
+        public Double Date { get; set; }
+        public String DateString { get; set; }
+
+        public string Content { get; set; }
+        public string Category { get; set; }
     }
 }

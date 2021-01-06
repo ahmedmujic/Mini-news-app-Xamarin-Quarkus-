@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Blog.Details">
+    <ContentPage.Content>
+        <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout Padding="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Label x:Name="Category" TextColor="RosyBrown" FontSize="20" FontAttributes="Bold" TextTransform="Uppercase"></Label>
+            <Label x:Name="Title" FontSize="22" FontAttributes="Bold"></Label>
+            <Image x:Name="Image" Aspect="AspectFill"></Image>
+            <Label x:Name="Description" FontSize="18" FontAttributes="Bold"></Label>
+            <Label x:Name="Content" FontSize="16"></Label>
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

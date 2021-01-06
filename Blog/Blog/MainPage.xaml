@@ -1,18 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Blog.MainPage">
-
+             x:Class="Blog.MainPage" >
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" >
+            <Image Source="blog" HorizontalOptions="Center" Aspect="AspectFit" HeightRequest="30"></Image>
+        </StackLayout>
+    </NavigationPage.TitleView>
     <StackLayout>
-        <Frame BackgroundColor="BlueViolet" HeightRequest="50"  >
-            <Label Text="BLOG" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" TextColor="White" FontSize="25" FontAttributes="Bold"></Label>
-        </Frame>
-        <Label Text="Todays briefing" FontAttributes="Bold" FontSize="17"></Label>
-        <ListView x:Name="lst" ItemsSource="{Binding Blogs}" Margin="10 10 10 10" >
+     
+  
+        <Label Text="Todays briefing" FontAttributes="Bold"  Padding="5,20,5,0" TextColor="OrangeRed" FontSize="18"></Label>
+        <ListView x:Name="lst" ItemsSource="{Binding Blogs}" HasUnevenRows="True" IsPullToRefreshEnabled="true" RefreshCommand="{Binding RefreshCommand}"
+           IsRefreshing="{Binding IsRefreshing}"  >
             <ListView.ItemTemplate  >
                 <DataTemplate>
-                    <ViewCell>
-                        <Grid  Padding="10">
+                    <ViewCell >
+                        <Grid Padding="15">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto">
                                     
@@ -20,23 +24,52 @@
                                 <RowDefinition Height="Auto">
 
                                 </RowDefinition>
+                                <RowDefinition Height="Auto">
+
+                                </RowDefinition>
+                                <RowDefinition Height="Auto">
+
+                                </RowDefinition>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="2*"></ColumnDefinition>
                                 <ColumnDefinition Width="*"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
-                            <Label Text="{Binding Title}" Grid.Column="0" Grid.Row="0"  VerticalOptions="Center"></Label>
-                             <Label Text="{Binding Title}"  Grid.Column="0" Grid.Row="1" VerticalOptions="Center"></Label>
-
-
-                            <Image Source="{Binding NewsImageUrl}" Grid.Column ="2" Aspect="AspectFill"
-                                HeightRequest="40"
-                                WidthRequest="60"></Image>
+                            <Label Text="{Binding Title}"
+                                   Grid.Column="0"
+                                   Grid.Row="0"
+                                   FontSize="20"
+                                   FontAttributes="Bold"
+                                   ></Label>
+                            <Label Text="{Binding Description}"
+                                   Grid.Column="0"
+                                   Grid.Row="1"
+                                   FontSize="18"
+                                   ></Label>
+                            <Label Text="{Binding DateString}"
+                                   Grid.Column="0"
+                                   Grid.Row="2"
+                                   FontSize="15"
+                                   ></Label>
+                            <Image Source="{Binding Picture}"
+                                   Aspect="AspectFill"
+                                   Grid.Column="1"
+                                   Grid.Row="0"
+                                   Grid.RowSpan="3" ></Image>
+                            <Button Text="Saznaj vise"
+                                    Grid.Row="3"
+                                    Grid.ColumnSpan="2"
+                                    Clicked="Navigate"
+                                    CornerRadius="3"
+                                    BackgroundColor="#94bdff"
+                                    CommandParameter="{Binding Id}"
+                                    ></Button>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+       
     </StackLayout>
 
 </ContentPage>
